@@ -2,7 +2,7 @@
   "name": "audio2text_siyuan_plugin",
   "author": "kprepos",
   "url": "https://github.com/KPRepos/audio2text_siyuan_plugin",
-  "version": "0.1",
+  "version": "0.1.0",
   "minAppVersion": "3.2.1",
   "backends": [
     "windows",
@@ -21,25 +21,14 @@
     "desktop-window"
   ],
   "displayName": {
-    "en_US": "audio2text",
+    "default": "audio2text",
     "zh_CN": "audio2text"
   },
   "description": {
-    "en_US": "Plugin to Transcribe audio to text",
+    "default": "Plugin to Transcribe audio to text",
     "zh_CN": "将音频转录为文本的插件"
   },
   "readme": {
-    "en_US": "README.md",
-    "zh_CN": "README.md"
-  },
-  "funding": {
-    "custom": [
-      ""
-    ]
-  },
-  "keywords": [
-    "plugin",
-    "sample",
-    "插件样例"
-  ]
+    "default": "README.md"
+  }
 }

@@ -1,4 +1,4 @@
-# audio2text
+# audio2text_siyuan_plugin
 
 SiYuan plugin to **transcribe audio blocks into text** using OpenAI.
 

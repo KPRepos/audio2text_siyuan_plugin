@@ -1,5 +1,5 @@
 
-# audio2text
+# audio2text_siyuan_plugin
 
 [中文版](./README_zh_CN.md)
 
@@ -89,7 +89,7 @@ conveniently.
 {
   "name": "audio2text",
   "author": "kprepos",
-  "url": "https://github.com/kprepos/audio2text",
+  "url": "https://github.com/KPRepos/audio2text_siyuan_plugin",
   "version": "0.1.3",
   "minAppVersion": "2.8.8",
   "backends": ["windows", "linux", "darwin"],
