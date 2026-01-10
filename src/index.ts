@@ -53,14 +53,6 @@ export default class PluginSample extends Plugin {
             description: this.i18n.hintDesc,
         });
 
-        try {
-            this.settingUtils.load();
-        } catch (error) {
-            // Settings storage may be empty on first load
-        }
-    }
-
-    onLayoutReady() {
         this.addTopBar({
             icon: "iconFace",
             title: this.i18n.addTopBarIcon,
@@ -71,20 +63,36 @@ export default class PluginSample extends Plugin {
             }
         });
 
-        this.settingUtils.load();
         // Load OpenAI API key from settings if available
-        if (!this.data[STORAGE_NAME].openaiApiKey) {
-            const savedKey = this.settingUtils.get("OpenAIAPIKey");
-            if (savedKey) {
-                this.data[STORAGE_NAME].openaiApiKey = savedKey;
+        try {
+            this.settingUtils.load();
+            if (!this.data[STORAGE_NAME].openaiApiKey) {
+                const savedKey = this.settingUtils.get("OpenAIAPIKey");
+                if (savedKey) {
+                    this.data[STORAGE_NAME].openaiApiKey = savedKey;
+                }
             }
+        } catch (error) {
+            // Settings storage may be empty on first load
         }
+    }
+
+    async onLayoutReady() {
+        await this.settingUtils.load();
     }
 
     async onunload() {
         // Unregister audio menu event listener
         this.eventBus.off("open-menu-av", this.audioMenuEventBindThis);
         this.eventBus.off("click-blockicon", this.blockIconEventBindThis);
+    }
+
+    uninstall() {
+        // 卸载插件时删除插件数据
+        // Delete plugin data when uninstalling the plugin
+        this.removeData(STORAGE_NAME).catch(e => {
+            showMessage(`uninstall [${this.name}] remove data [${STORAGE_NAME}] fail: ${e.msg}`);
+        });
     }
 
     private blockIconEvent({ detail }: any) {
