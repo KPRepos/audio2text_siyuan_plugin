@@ -65,7 +65,7 @@ export default class PluginSample extends Plugin {
 
         // Load OpenAI API key from settings if available
         try {
-            this.settingUtils.load();
+            await this.settingUtils.load();
             if (!this.data[STORAGE_NAME].openaiApiKey) {
                 const savedKey = this.settingUtils.get("OpenAIAPIKey");
                 if (savedKey) {
@@ -75,10 +75,6 @@ export default class PluginSample extends Plugin {
         } catch (error) {
             // Settings storage may be empty on first load
         }
-    }
-
-    async onLayoutReady() {
-        await this.settingUtils.load();
     }
 
     async onunload() {

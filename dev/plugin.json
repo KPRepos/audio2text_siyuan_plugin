@@ -4,6 +4,7 @@
   "url": "https://github.com/KPRepos/audio2text_siyuan_plugin",
   "version": "0.1.0",
   "minAppVersion": "3.2.1",
+  "disabledInPublish": true,
   "backends": [
     "windows",
     "linux",
