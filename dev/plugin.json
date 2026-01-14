@@ -2,7 +2,7 @@
   "name": "audio2text_siyuan_plugin",
   "author": "kprepos",
   "url": "https://github.com/KPRepos/audio2text_siyuan_plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "minAppVersion": "3.2.1",
   "disabledInPublish": true,
   "backends": [
